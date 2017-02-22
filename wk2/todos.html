@@ -1,0 +1,74 @@
+<!doctype html>
+<html ng-app="todoApp">
+
+<head>
+    <title>My Todos</title>
+
+    <meta charset="utf-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1">
+
+    <!-- Bootstrap -->
+    <link rel="stylesheet" href="https://maxcdn.bootstrapcdn.com/bootstrap/3.3.7/css/bootstrap.min.css">
+    <script src="http://code.jquery.com/jquery-3.1.1.min.js"></script>
+    <script src="https://maxcdn.bootstrapcdn.com/bootstrap/3.3.7/js/bootstrap.min.js"></script>
+
+    <!-- Angular -->
+    <script src="https://ajax.googleapis.com/ajax/libs/angularjs/1.6.2/angular.min.js"></script>
+    <script src="./todos.js"></script>
+
+    <style>
+        .danger {
+            color: red;
+        }
+    </style>
+
+</head>
+
+<body ng-controller="todoCtrl">
+    <div class="container">
+        <div class="row">
+            <div class="col-xs-6">
+                <h2>My Todos</h2>
+                <div class="input-group">
+                    <input class="form-control" ng-model="newItem">
+                    <span class="input-group-btn">
+                        <button class="btn btn-default" type="button" ng-disabled="newItem.length == 0" 
+                            ng-click="addItem()">Add</button>
+                    </span>
+                </div>
+                <p class="danger" ng-show="incompleteCount() >= 5">
+                    Too many items left to do. Check yourself.
+                </p>
+            </div>
+        </div>
+        <br>
+        <div class="row">
+            <div class="col-xs-12">
+                <table class="table table-bordered">
+                    <thead>
+                        <tr>
+                            <td>Item</td>
+                            <td>Complete</td>
+                        </tr>
+                    </thead>
+                    <tbody>
+                        <tr ng-repeat="item in todos">
+                            <td>{{item.action}}</td>
+                            <td>
+                                <input type="checkbox" ng-model="item.done">
+                            </td>
+                        </tr>
+                    </tbody>
+                </table>
+            </div>
+        </div>
+        <div class="row">
+            <div class="col-xs-12">
+                <h4>Todo <span class="label label-warning"> {{incompleteCount()}}</span> </h4>
+                <h4>Completed <span class="label label-success"> {{completeCount()}}</span> </h4>
+            </div>
+        </div>
+    </div>
+</body>
+
+</html>
