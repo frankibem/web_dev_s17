@@ -4,6 +4,7 @@ using System.Linq;
 using System.Threading.Tasks;
 using Cataloger.Data;
 using Cataloger.Models;
+using Microsoft.AspNetCore.Cors;
 using Microsoft.AspNetCore.Mvc;
 
 // For more information on enabling Web API for empty projects, visit http://go.microsoft.com/fwlink/?LinkID=397860
@@ -11,6 +12,7 @@ using Microsoft.AspNetCore.Mvc;
 namespace Cataloger.Controllers
 {
     [Route("api/[controller]")]
+    [EnableCors("MyPublicPolicy")]
     public class ItemsController : Controller
     {
         private readonly IItemRepository m_repo;
@@ -53,7 +55,7 @@ namespace Cataloger.Controllers
         }
 
         // PUT api/items/5
-        [HttpPut("{id}")]
+        [HttpPut]
         public IActionResult Put([FromBody]Item item)
         {
             if(!ModelState.IsValid)
