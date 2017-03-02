@@ -1,0 +1,53 @@
+<!doctype html>
+<html ng-app="chuckApp">
+
+<head>
+    <title>Chuck Norris</title>
+
+    <meta charset="utf-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1">
+
+    <!-- Bootstrap -->
+    <link rel="stylesheet" href="https://maxcdn.bootstrapcdn.com/bootstrap/3.3.7/css/bootstrap.min.css">
+    <script src="http://code.jquery.com/jquery-3.1.1.min.js"></script>
+    <script src="https://maxcdn.bootstrapcdn.com/bootstrap/3.3.7/js/bootstrap.min.js"></script>
+
+    <!-- Angular -->
+    <script src="https://ajax.googleapis.com/ajax/libs/angularjs/1.6.2/angular.min.js"></script>
+    <script src="./chuck.js"></script>
+
+    <style>
+        body {
+            padding: 16px;
+        }
+
+        .space {
+            padding: 24px;
+        }
+    </style>
+</head>
+
+<body ng-controller="chuckCtrl">
+    <div class="container">
+        <div class="row">
+            <div class="col-xs-12">
+                <button class="btn btn-default" ng-click="randomJoke()">
+                    <span class="glyphicon glyphicon-refresh" aria-hidden="true"></span>
+                    Random
+                </button>
+            </div>
+        </div>
+        <div class="row space">
+            <div class="col-xs-3">
+                <img src="{{image}}" alt="Chuck Norris Image">
+            </div>
+            <div class="col-xs-9">
+                <h4>
+                    {{joke}}
+                </h4>
+            </div>
+        </div>
+    </div>
+</body>
+
+</html>
