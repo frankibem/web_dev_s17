@@ -1,0 +1,30 @@
+@using backend.Models
+@model IEnumerable<Item>
+
+<h3>Item Catalog</h3>
+
+<div class="row">
+    <div class="col-xs-12">
+        <table class="table table-bordered">
+            <thead>
+                <tr>
+                    <td>#</td>
+                    <td>Title</td>
+                    <td>Description</td>
+                    <td>Price ($)</td>
+                </tr>
+            </thead>
+            <tbody>
+                @foreach(var item in Model)
+                {
+                    <tr>
+                        <td>@item.Id</td>
+                        <td>@item.Title</td>
+                        <td>@item.Description</td>
+                        <td>@item.Price</td>
+                    </tr>
+                }
+            </tbody>
+        </table>
+    </div>
+</div>
