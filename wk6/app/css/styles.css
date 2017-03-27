@@ -1,0 +1,44 @@
+.messages {
+    margin-bottom: 100px;
+}
+
+.message {
+    border: 1px solid lightgray;
+    border-radius: 3px;
+    margin: 5px;
+    padding: 10px;
+    min-width: 250px;
+}
+
+.message-left {
+    background-color: antiquewhite;
+}
+
+.message-right {
+    background-color: azure;
+}
+
+footer {
+    position: fixed;
+    height: 100px;
+    width: 100%;
+    padding: 20px;
+    bottom: 0;
+    left: 0;
+    background-color: teal;
+    color: white;
+}
+
+.username {
+    font-style: italic;
+    font-weight: bold;
+}
+
+.pic {
+    width: 50px;
+    height: 50px;
+    border-radius: 50%;
+    border: 1px solid lightgray;
+    background-color: white;
+    display: block;
+}

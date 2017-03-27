@@ -1,0 +1,66 @@
+<html ng-app="chat">
+
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Simple Chat App</title>
+
+    <script src="./lib/angular/angular.js"></script>
+    <script src="./lib/pubnub/dist/web/pubnub.min.js"></script>
+    <script src="./lib/pubnub-angular/dist/pubnub-angular.min.js"></script>
+    <script src="./js/chat.module.js"></script>
+    <script src="./js/chat.controller.js"></script>
+
+    <link href="./lib/bootstrap/dist/css/bootstrap.min.css" rel="stylesheet">
+    <link href="./css/styles.css" rel="stylesheet">
+</head>
+
+<body ng-controller="chatCtrl">
+    <div class="container messages">
+        <div ng-repeat="msg in messages">
+            <div class="row">
+                <div class="col-xs-9" ng-if="msg.sender != username">
+                    <div class="message message-left">
+                        <div class="row">
+                            <div class="col-xs-4">
+                                <img ng-src="{{getPicUrl(msg.sender)}}" alt="Profile image" class="pic">
+                                <span class="username">{{msg.sender}}</span>
+                            </div>
+                            <div class="col-xs-8">
+                                <p>{{msg.content}}</p>
+                            </div>
+                        </div>
+                    </div>
+                </div>
+                <div class="col-xs-9 col-xs-push-3" ng-if="msg.sender == username">
+                    <div class="message message-right pull-right">
+                        <div class="row">
+                            <div class="col-xs-8">
+                                <p>{{msg.content}}</p>
+                            </div>
+                            <div class="col-xs-4">
+                                <img ng-src="{{getPicUrl(msg.sender)}}" alt="Profile image" class="pic">
+                                <span class="username">{{msg.sender}}</span>
+                            </div>
+                        </div>
+                    </div>
+                </div>
+            </div>
+        </div>
+
+        <footer>
+            <div class="row">
+                <div class="input-group input-group-lg">
+                    <input type="text" placeholder="Type a message" class="form-control" ng-model="messageContent" ng-keyup="enterPressed($event)">
+                    <span class="input-group-btn">
+                        <button class="btn btn-default btn-lg" ng-click="sendMessage()" type="button">
+                            <span class="glyphicon glyphicon-send" aria-hidden="true">
+                        </button>
+                    </span>
+                </div>
+            </div>
+        </footer>
+    </div>
+</body>
+
+</html>

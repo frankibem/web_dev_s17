@@ -1,0 +1,10 @@
+{
+  "name": "chatter",
+  "private": true,
+  "dependencies": {
+    "angular": "^1.6.3",
+    "pubnub-angular": "^4.0.2",
+    "bootstrap": "^3.3.7",
+    "pubnub": "^4.5.0"
+  }
+}
