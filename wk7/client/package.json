@@ -1,0 +1,5 @@
+{
+    "dependencies": {
+        "selenium-webdriver": "3.3.0"
+    }
+}
